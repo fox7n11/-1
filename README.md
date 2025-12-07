@@ -320,25 +320,48 @@ enemies.erase(remove_if(enemies.begin(), enemies.end(),
 ### 类关系图总结：
 ```
 Game (主控类)
+
 ├── 管理 Player (玩家)
+
 ├── 管理 vector<shared_ptr<Enemy>> (敌人集合)
+
 ├── 管理 vector<shared_ptr<Item>> (道具集合)
+
 ├── 管理 vector<Trap> (陷阱集合)
+
 ├── 管理 deque<GameMessage> (消息队列)
+
 └── 管理 vector<vector<char>> (游戏地图)
 
 继承体系：
 Character (角色基类)
+
 ├── Player (玩家) - 添加成长属性
+
 └── Enemy (敌人基类) - 添加经验奖励
+
     ├── Goblin (地精)
+
     ├── Orc (兽人)
+
     └── Boss (首领)
 
 Item (道具抽象基类)
+
 ├── HealthPotion (生命药水) - 添加治疗量
+
 ├── WeaponUpgrade (武器升级) - 添加攻击加成
+
 └── Key (钥匙) - 无额外属性
+
+辅助类：
+
+Position (坐标) - 所有位置相关的基础
+
+GameMessage (消息) - 游戏事件反馈
+
+Trap (陷阱) - 环境危险元素
+``
 
 辅助类：
 Position (坐标) - 所有位置相关的基础
